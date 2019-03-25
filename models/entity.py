@@ -1,8 +1,7 @@
 from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy.sql import func
-from datetime import datetime
-
 from app import db
+
 
 class Entity():
     id = Column(Integer, primary_key=True, autoincrement="auto")
@@ -16,7 +15,7 @@ class Entity():
     def toDict(self):
         return {
            'id': self.id,
-            'date_created': str(self.date_created) # TODO Convert to controlled date format
+            'date_created': str(self.date_created)  # TODO Convert to controlled date format
         }
 
     def toJSON(self):

@@ -13,6 +13,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lab8.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'so unsecured'
+# Setup Middleware for Documenation
 
 # Setting up Logging Functionality (using file-based logging)
 logHandler = RotatingFileHandler('info.log', maxBytes=1000, backupCount=1)
@@ -81,6 +82,9 @@ def setup():
 
 @app.route('/')
 def hello():
+    """
+    Displays the landing page for the application
+    """
     records = []
     start = 1
     num_records = 10

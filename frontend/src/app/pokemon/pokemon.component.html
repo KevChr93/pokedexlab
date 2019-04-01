@@ -1,0 +1,22 @@
+<div *ngIf="records">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let rec of records">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{rec.name }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{rec.type_1}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <ul>
+        <li>{{rec.name}}</li>
+        <li>{{rec.type_1}}</li>
+        <li>{{rec.attack}}</li>
+        <li>{{rec.defense}}</li>
+      </ul>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

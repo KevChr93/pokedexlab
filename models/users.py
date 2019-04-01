@@ -1,4 +1,3 @@
-
 from sqlalchemy import Column, String, Integer
 from models.entity import Entity
 from sqlalchemy.event import listen
@@ -7,10 +6,10 @@ from app import db, session
 
 
 class User(Entity, db.Model):
-    __tablename__='users'
-    username=Column(String(255))
-    password=Column(String(50))
-    role=Column(Integer, default=1)
+    __tablename__ = 'users'
+    username = Column(String(255), nullable=False, unique=True)
+    password = Column(String(50), nullable=False,)
+    role = Column(Integer, default=1)
 
     def __init__(self, username, password, role=0):
         super().__init__()
@@ -53,4 +52,3 @@ def create_default_users(target, connection, **kw):
 
 
 listen(User.__table__, 'after_create', create_default_users)
-
